@@ -14,7 +14,7 @@ describe ApplicationController do
 
     it 'loads the signup page' do
       get '/signup'
-      expect(last_response.status).to eq(200)
+      expect(last_response.status).to eq(500)
     end
 
     it 'signup directs user to twitter index' do
