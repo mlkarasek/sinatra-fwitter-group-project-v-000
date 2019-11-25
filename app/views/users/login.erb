@@ -1,0 +1,18 @@
+<h3 style="color: #16A085;"><% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %></h3>
+
+<h1>Log in to Fwitter</h1>
+<form action="/login" method="POST">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username">
+  <label for="email">Email:</label>
+  <input type="text" id="email" name="email">
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password">
+  <button type="submit" value="submit">Log In</button>
+</form>
+
+<br><br>
+
+New user? Sign up <a href="/signup">here</a>.
