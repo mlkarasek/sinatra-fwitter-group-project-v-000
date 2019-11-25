@@ -1,0 +1,20 @@
+<h3 style="color: #16A085;"><% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %></h3>
+
+<h1>Welcome, <%= current_user.username %>!</h1>
+
+<h3>Current feed:</h3>
+
+<ul>
+  <% @tweets.each do |tweet| %>
+    <li><%= tweet.content %></li>
+    <br>
+  <% end %>
+</ul>
+
+<b><a href="/tweets/new">Write a new tweet</a></b>
+
+<br><br><br>
+
+<a href="/users/<%= current_user.slug %>">My Tweets</a> <b>|</b> <a href="/logout">Log Out</a>

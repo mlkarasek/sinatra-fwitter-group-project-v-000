@@ -1,16 +1,14 @@
-<% if Helpers.is_logged_in?(session) %>
-<%= @error %>
-  <form action='/tweets' method="post">
-    Content:
-    <input type="text" name="content"><br>
-    Create Your Tweet:
+<h3 style="color: #16A085;"><% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %></h3>
 
-    <input type="submit" name="submit" id="submit">
+<h1>Write a New Tweet</h1>
+<form action='/tweets' method="POST">
+  <label for="content">Tweet:</label>
+  <input type="text" id="content" name="tweet[content]">
+  <button type="submit" value="submit">Post Tweet</button>
+</form>
 
-    <input type="submit" name="submit">
+<br><br>
 
-  </form>
-
-  <% else %>
-      <h1> You Must Be Logged in to Make Tweets </h1>
-  <% end %>
+<a href="/tweets">Home</a>  <b>|</b>  <a href="/users/<%= current_user.slug %>">My Tweets</a>  <b>|</b>  <a href="/logout">Log Out</a>

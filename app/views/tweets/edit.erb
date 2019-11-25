@@ -1,0 +1,15 @@
+<h3 style="color: #16A085;"><% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %></h3>
+
+<h2>Edit Tweet Below</h2>
+<form action='/tweets/<%= @tweet.id %>' method="POST">
+  <input type="hidden" id="hidden" name="_method" value="PATCH">
+  <label for="content">Tweet:</label>
+  <input type="text" id="content" name="tweet[content]" value="<%= @tweet.content %>">
+  <button type="submit" value="submit">Edit Tweet</button>
+</form>
+
+<br><br>
+
+<a href="/tweets">Home</a>  <b>|</b>  <a href="/users/<%= current_user.slug %>">My Tweets</a>  <b>|</b>  <a href="/logout">Log Out</a>
